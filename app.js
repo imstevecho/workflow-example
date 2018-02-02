@@ -10,7 +10,10 @@ var interpreter = function() {
 	return true
 };
 
-var stateManager = StateManager({interpreter: interpreter})
+
+console.log(StateManager);
+
+var stateManager = new StateManager({interpreter: interpreter})
 console.log(stateManager);
 
 
