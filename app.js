@@ -3,18 +3,33 @@ var express = require('express')
 var cons = require('consolidate')
 var app = express()
 var expressLess = require('express-less');
-var StateManager = require('intellect-ui-workflow-engine');
+var WorkflowManager = require('intellect-ui-workflow-engine');
 
 
-var interpreter = function() {
-	return true
-};
+Array.prototype.randomElement = function () {
+    return this[Math.floor(Math.random() * this.length)]
+}
 
+var pageRenderingEngine = {
+    data: {},
 
-console.log(StateManager);
+    getValue(var_name) {
+        const result = this.data[var_name];
+        return result;
+    },
 
-var stateManager = new StateManager({interpreter: interpreter})
-console.log(stateManager);
+    interpreter(code) {
+        return [true, false, false, false, false, true, false, false].randomElement();
+    }
+}
+
+var workflowManager = new WorkflowManager({interpreter: pageRenderingEngine.interpreter}).init();
+
+var pageList = workflowManager.getPage('first', {'moduleName': 'coverage_type'});
+console.log("get the first page of a particular workflow module: getPage('first', {'moduleName': 'coverage_type'})");
+console.log(pageList);
+console.log("");
+
 
 
 // Set Mustache as the Template Engine

@@ -13,6 +13,6 @@
     "express": "^4.10.6",
     "express-less": "0.0.6",
     "mustache": "^1.0.0",
-    "intellect-ui-workflow-engine": "git@github.com:intellectdesign/intellect-ui-workflow-engine.git#es5"
+    "intellect-ui-workflow-engine": "git@github.com:intellectdesign/intellect-ui-workflow-engine.git"
   }
 }
